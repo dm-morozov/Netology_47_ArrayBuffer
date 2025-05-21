@@ -10,15 +10,13 @@ import Zombie from "../Zombie.js";
 describe("Character", () => {
   test("Создание персонажа character", () => {
     const character = new Bowman("Archer");
-    expect(character).toEqual({
-      name: "Archer",
-      type: "Bowman",
-      health: 100,
-      level: 1,
-      attack: 25,
-      defence: 25,
-      special: [],
-    });
+    expect(character.name).toBe("Archer");
+    expect(character.type).toBe("Bowman");
+    expect(character.health).toBe(100);
+    expect(character.level).toBe(1);
+    expect(character.attack).toBe(25); // Проверяем через геттер
+    expect(character.defence).toBe(25);
+    expect(character.special).toEqual([]);    
   });
 
   test("Проверка имени на длину, если короткое", () => {
@@ -47,7 +45,7 @@ describe("Character", () => {
       type: "Bowman",
       health: 100,
       level: 2,
-      attack: 30, // 25 * 1.2
+      _baseAttack: 30, // 25 * 1.2
       defence: 30, // 25 * 1.2
       special: [],
     });
@@ -92,23 +90,38 @@ describe("character classes", () => {
   test.each([
     [Bowman, "Bowman", { attack: 25, defence: 25 }],
     [Swordsman, "Swordsman", { attack: 40, defence: 10 }],
-    [Magician, "Magician", { attack: 10, defence: 40 }],
-    [Daemon, "Daemon", { attack: 10, defence: 40 }],
+    [
+      Magician,
+      'Magician',
+      { attack: 10, defence: 40, _stoned: false, _distance: 1 },
+    ],
+    [
+      Daemon,
+      'Daemon',
+      { attack: 10, defence: 40, _stoned: false, _distance: 1 },
+    ],
     [Undead, "Undead", { attack: 25, defence: 25 }],
     [Zombie, "Zombie", { attack: 40, defence: 10 }],
   ])(
     "should create %p with correct attributes",
-    (Class, type, { attack, defence }) => {
+    (Class, type, expectedProps) => {
       const character = new Class("Hero");
-      expect(character).toEqual({
+      expect(character).toMatchObject({
         name: "Hero",
         type,
         health: 100,
         level: 1,
-        attack,
-        defence,
         special: [],
       });
+      expect(character.attack).toBe(expectedProps.attack);
+      expect(character.defence).toBe(expectedProps.defence);
+      
+      if ("_stoned" in expectedProps) {
+        expect(character._stoned).toBe(expectedProps._stoned);
+      }
+      if ("_distance" in expectedProps) {
+        expect(character._distance).toBe(expectedProps._distance);
+      }
     },
   );
 });

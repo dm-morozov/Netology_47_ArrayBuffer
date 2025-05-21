@@ -8,7 +8,7 @@ describe("orderByProps", () => {
     // Создаём экземпляр Character перед каждым тестом
     character = new Character("Archer", "Bowman");
     // Задаём attack и defence для полноты тестов
-    character.attack = 40;
+    character.attack = 40; // Устанавливаем через сеттер
     character.defence = 10;
   });
 
@@ -17,7 +17,7 @@ describe("orderByProps", () => {
     const expected = [
       { key: "name", value: "Archer" },
       { key: "level", value: 1 },
-      { key: "attack", value: 40 },
+      { key: "_baseAttack", value: 40 },
       { key: "defence", value: 10 },
       { key: "health", value: 100 },
       { key: "special", value: [] },
@@ -29,7 +29,7 @@ describe("orderByProps", () => {
   test("обрабатывает пустой массив order", () => {
     const order = [];
     const expected = [
-      { key: "attack", value: 40 },
+      { key: "_baseAttack", value: 40 },
       { key: "defence", value: 10 },
       { key: "health", value: 100 },
       { key: "level", value: 1 },
@@ -44,7 +44,7 @@ describe("orderByProps", () => {
     const order = ["name", "unknown"];
     const expected = [
       { key: "name", value: "Archer" },
-      { key: "attack", value: 40 },
+      { key: "_baseAttack", value: 40 },
       { key: "defence", value: 10 },
       { key: "health", value: 100 },
       { key: "level", value: 1 },
@@ -63,15 +63,15 @@ describe("orderByProps", () => {
       enumerable: false, // это свойство позволяет перечислять свойства
     });
     const order = ["name", "type"];
-    const expexted = [
+    const expected = [
       { key: "name", value: "Archer" },
       { key: "type", value: "Bowman" },
-      { key: "attack", value: 40 },
+      { key: "_baseAttack", value: 40 },
       { key: "defence", value: 10 },
       { key: "health", value: 100 },
       { key: "level", value: 1 },
       { key: "special", value: [] },
     ];
-    expect(character.orderByProps(order)).toEqual(expexted);
+    expect(character.orderByProps(order)).toEqual(expected);
   });
 });
