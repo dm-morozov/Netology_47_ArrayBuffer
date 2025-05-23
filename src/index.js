@@ -64,22 +64,22 @@ console.log("Ошибка 100:", errorRepo.translate(100)); // Недостат�
 console.log("Ошибка 999:", errorRepo.translate(999)); // Unknown error
 
 // Тестирование Magician и Daemon
-const magician = new Magician('Mage');
+const magician = new Magician("Mage");
 magician.distance = 2;
-console.log('Magician attack (distance 2):', magician.attack); // 9
+console.log("Magician attack (distance 2):", magician.attack); // 9
 magician.stoned = true;
-console.log('Magician attack (stoned, distance 2):', magician.attack); // 4
+console.log("Magician attack (stoned, distance 2):", magician.attack); // 4
 
-const daemon = new Daemon('Demon');
+const daemon = new Daemon("Demon");
 daemon.distance = 3;
-console.log('Daemon attack (distance 3):', daemon.attack); // 8
+console.log("Daemon attack (distance 3):", daemon.attack); // 8
 daemon.stoned = true;
-console.log('Daemon attack (stoned, distance 3):', daemon.attack); // 0
+console.log("Daemon attack (stoned, distance 3):", daemon.attack); // 0
 
 // Тестируем декодирование строки ArrayBuffer
 // из файла getBuffer.js
-const converter = new ArrayBufferConverter()
+const converter = new ArrayBufferConverter();
 const buffer = getBuffer();
 converter.load(buffer);
 console.log(`Получаем строку json: ${converter.toString()}`);
-console.log(converter.ConvertString())
+console.log(converter.ConvertString());

@@ -16,7 +16,7 @@ describe("Character", () => {
     expect(character.level).toBe(1);
     expect(character.attack).toBe(25); // Проверяем через геттер
     expect(character.defence).toBe(25);
-    expect(character.special).toEqual([]);    
+    expect(character.special).toEqual([]);
   });
 
   test("Проверка имени на длину, если короткое", () => {
@@ -92,12 +92,12 @@ describe("character classes", () => {
     [Swordsman, "Swordsman", { attack: 40, defence: 10 }],
     [
       Magician,
-      'Magician',
+      "Magician",
       { attack: 10, defence: 40, _stoned: false, _distance: 1 },
     ],
     [
       Daemon,
-      'Daemon',
+      "Daemon",
       { attack: 10, defence: 40, _stoned: false, _distance: 1 },
     ],
     [Undead, "Undead", { attack: 25, defence: 25 }],
@@ -115,7 +115,7 @@ describe("character classes", () => {
       });
       expect(character.attack).toBe(expectedProps.attack);
       expect(character.defence).toBe(expectedProps.defence);
-      
+
       if ("_stoned" in expectedProps) {
         expect(character._stoned).toBe(expectedProps._stoned);
       }

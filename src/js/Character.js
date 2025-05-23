@@ -32,10 +32,13 @@ export default class Character {
     this.attack = undefined;
     this.defence = undefined;
     this.special = [];
-    this._baseAttack = undefined; // так как мы будем менять this.attack нам где-то нужно хранить базовую атаку. а там будут геттеры и сеттеры
+     // так как мы будем менять this.attack 
+     // нам где-то нужно хранить базовую атаку. 
+     // А там будут геттеры и сеттеры
+    this._baseAttack = undefined;
   }
 
-  // теперь чтобы все работало корректно из-за _baseAttack и 
+  // теперь чтобы все работало корректно из-за _baseAttack и
   // attack мы будем сдесь использовать,
   // а в MagicalCharacter переопределять
   // в таком случае мы в LevelUp()
@@ -49,7 +52,7 @@ export default class Character {
     return this._baseAttack;
   }
 
-  // Получается наиболее чистое решение т.к. 
+  // Получается наиболее чистое решение т.к.
   // attack теперь у всех связан с _baseAttack
 
   levelUp() {

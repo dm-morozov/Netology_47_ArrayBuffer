@@ -31,7 +31,7 @@ export default class MagicalCharacter extends Character {
   }
 
   // Нам нужно переопределить атаки с учетом задания
-  
+
   set attack(value) {
     this._baseAttack = value;
   }
@@ -39,12 +39,12 @@ export default class MagicalCharacter extends Character {
   get attack() {
     if (this._baseAttack === undefined) {
       return undefined;
-    };
+    }
 
     // на всякий случай добавим проверку на растояние
     // если оно некорректное, то атака будет 0
     if (this._distance < 1 || this._distance > 5) {
-      return 0; 
+      return 0;
     }
 
     // Шаг 1: Уменьшение атаки по расстоянию
