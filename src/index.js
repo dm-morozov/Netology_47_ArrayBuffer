@@ -1,5 +1,6 @@
 // index.js
 import "./css/style.css";
+import ArrayBufferConverter from "./js/ArrayBufferConverter.js";
 import Bowman from "./js/Bowman.js";
 import Character from "./js/Character.js";
 import Daemon from "./js/Daemon.js";
@@ -9,6 +10,7 @@ import Swordsman from "./js/Swordsman.js";
 import Team from "./js/Team.js";
 import Undead from "./js/Undead.js";
 import Zombie from "./js/Zombie.js";
+import getBuffer from "./js/getBuffer.js";
 
 // Для тестирования в консоли добавим классы в глобальную область видимости
 window.Character = Character;
@@ -73,3 +75,11 @@ daemon.distance = 3;
 console.log('Daemon attack (distance 3):', daemon.attack); // 8
 daemon.stoned = true;
 console.log('Daemon attack (stoned, distance 3):', daemon.attack); // 0
+
+// Тестируем декодирование строки ArrayBuffer
+// из файла getBuffer.js
+const converter = new ArrayBufferConverter()
+const buffer = getBuffer();
+converter.load(buffer);
+console.log(`Получаем строку json: ${converter.toString()}`);
+console.log(converter.ConvertString())
