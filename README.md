@@ -1,6 +1,6 @@
 # Netology_47_ArrayBuffer: Контейнеры и ArrayBuffer
 
-[![Build status](https://ci.appveyor.com/api/projects/status/w637s9dd2bhwy5pd?svg=true)](https://ci.appveyor.com/project/dm-morozov/Netology_47_ArrayBuffer)
+[![Build status](https://ci.appveyor.com/api/projects/status/5p9b4te9g5ent4gk?svg=true)](https://ci.appveyor.com/project/dm-morozov/netology-47-arraybuffer)
 ![Netology](https://img.shields.io/badge/Netology-JavaScript-blue)
 ![Jest Coverage](https://img.shields.io/badge/Покрытие-100%25-brightgreen)
 
