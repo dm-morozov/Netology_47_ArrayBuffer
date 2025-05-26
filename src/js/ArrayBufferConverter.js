@@ -1,10 +1,15 @@
+// ArrayBufferConverter.js
+
 export default class ArrayBufferConverter {
   constructor() {
     this.buffer = null;
+    this.stringJSON = null;
   }
 
   load(buffer) {
     this.buffer = buffer;
+    // Сбрасываем строку при новой загрузке
+    this.stringJSON = null;
   }
 
   toString() {
@@ -29,7 +34,9 @@ export default class ArrayBufferConverter {
   }
 
   convertString() {
-    if (!this.stringJSON) this.toString();
+    if (!this.stringJSON) {
+      this.toString();
+    }
     try {
       return JSON.parse(this.stringJSON);
     } catch (e) {

@@ -1,3 +1,5 @@
+// MagicalCharacter.js
+
 import Character from "./Character.js";
 
 // По началу все реализовал в Character.js

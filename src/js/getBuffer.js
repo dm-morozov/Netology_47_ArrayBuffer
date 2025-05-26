@@ -1,3 +1,5 @@
+// getBuffer.js
+
 export default function getBuffer() {
   const data = '{"data":{"user":{"id":1,"name":"Hitman","level":10}}}';
   return ((input) => {

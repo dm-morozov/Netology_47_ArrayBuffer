@@ -32,9 +32,9 @@ export default class Character {
     this.attack = undefined;
     this.defence = undefined;
     this.special = [];
-     // так как мы будем менять this.attack 
-     // нам где-то нужно хранить базовую атаку. 
-     // А там будут геттеры и сеттеры
+    // так как мы будем менять this.attack
+    // нам где-то нужно хранить базовую атаку.
+    // А там будут геттеры и сеттеры
     this._baseAttack = undefined;
   }
 
